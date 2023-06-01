@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier mes choix - Stellantis{% endblock %}
+
+{% block body %}
+
+    <div class="form-client-custom p-5">
+        {{ form_start(formchoix) }}
+
+        <h3 class="text-center pt-5">Ajouter vos choix :</h3>
+        <div class="row pt-5">
+            <div class="col-md-4 p-4 text-center">
+                {{ form_row(formchoix.choix01,{'label': 'Choix n°1 : '}) }}
+            </div>
+            <div class="col-md-4 p-4 text-center">
+                {{ form_row(formchoix.choix02, {'label': 'Choix n°2 : '}) }}
+            </div>
+            <div class="col-md-4 p-4 text-center">
+                {{ form_row(formchoix.choix03, {'label': 'Choix n°3 : '}) }}
+            </div>
+        </div>
+        <div class="py-2">
+            <div class="text-center">
+                {{ form_rest(formchoix) }}
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

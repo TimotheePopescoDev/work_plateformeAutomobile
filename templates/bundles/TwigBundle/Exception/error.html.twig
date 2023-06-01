@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Divali - Page introuvable{% endblock %}
+
+{% block content %}
+    <div class="p-2 text-center align-items-center">
+        <h2>Aïe !! Sortie de route</h2>
+        <div class="erreur-custom">
+            <img class="m-2" src="{{ asset('uploads/img/voiturecrash.png') }}" alt="">
+        </div>
+        <h5 class="p-2">Attacher votre ceinture et retrouver votre route.</h5>
+    </div>
+{% endblock %}

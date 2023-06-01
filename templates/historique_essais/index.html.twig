@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des essais - Stellantis{% endblock %}
+
+{% block body %}
+    <Section class="w-100 d-flex">
+        <div class="div-cutom-menu-active text-center">
+            <h3>
+                <a href="{{ path('app_essais_complet') }}">Historique des essais</a>
+            </h3>
+        </div>
+        <div class="div-cutom-menu text-center">
+            <h3>
+                <a href="{{ path('app_historique_form') }}">Historique des forms</a>
+            </h3>
+        </div>
+
+    </Section>
+
+    <div class="list-custom">
+        <div class="article-list row">
+            <div class="col-3 item-list"><p class="article-p">StartedAt</p></div>
+            <div class="col-3 item-list"><p class="article-p">Voiture</p></div>
+            <div class="col-3 item-list"><p class="article-p">Client</p></div>
+            <div class="col-3 item-list"><p class="article-p">Passager</p></div>
+        </div>
+        {% for essai in essais %}
+            <div class="article-list row px-0">
+                <div class="col-3 item-list"><p class="article-p">{{ essai.startedAt|date('d/m/y H:i') }}</p></div>
+                <div class="col-3 item-list"><p class="article-p">{{ essai.voiture }}</p></div>
+                <div class="col-3 item-list"><p class="article-p">{{ essai.conducteur }}</p></div>
+                <div class="col-3 item-list"><p class="article-p">{{ essai.passager01 }}</p></div>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

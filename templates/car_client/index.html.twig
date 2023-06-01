@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos voitures - Stellantis{% endblock %}
+
+{% block body %}
+    <div class="text-center p-4">
+        <h3>
+            Liste des voitures
+        </h3>
+    </div>
+    <div class="m-0 custom-list-filtres">
+        {{ form_start(form) }}
+        <div class="custom-filter">
+            <div class="py-2 row">
+                <div class="col-md-6">
+                    <h6 class="h6 mb-3  text-center font-weight-normal">Marques </h6>
+                    {{ form_row(form.categories) }}
+                </div>
+                <div class="col-md-6">
+                    <h6 class="h6 mb-3  text-center font-weight-normal">Energy </h6>
+                    {{ form_row(form.energy) }}
+                </div>
+            </div>
+            <div class="pr-sm-5">{{ form_rest(form) }}</div>
+
+        </div>
+        <div class="row m-0">
+            {% for car in cars %}
+                <div class="col-md-4 car">
+                    <div class="m-3 car-client-custom">
+                        <a href="{{ path('app_car_shows', {'slug': car.slug}) }}">
+                            <h5 class="text-center">{{ car.marques }}</h5>
+                            <p class="text-center">{{ car.modele }}</p>
+                            <p class="text-right car-client-category-custom">{{ car.immatriculation }}</p>
+                            <img src="/uploads/{{ car.illustration }}" class="img-fluid" alt="">
+                        </a>
+                    </div>
+
+                </div>
+            {% endfor %}
+        </div>
+
+    </div>
+{% endblock %}

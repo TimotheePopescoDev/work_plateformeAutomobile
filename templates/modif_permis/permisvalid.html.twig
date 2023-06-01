@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon permis - Stellantis{% endblock %}
+
+{% block body %}
+
+
+{% if app.user.permisrecto and app.user.permisverso  %}
+    <div class="p-5">
+        <div class="text-right p-2">
+            <a href="{{ path('app_modif_permis') }}" class="btn btn-primary btn-lg rounded-5" role="button">Modifier mon permis</a>
+        </div>
+        <div class="row">
+            <div class="col-md-6 p-2">
+                <h5 class="mb-3">Permis recto : </h5>
+                <img src="/uploads/permis/{{ app.user.permisrecto }}" alt="" class="img-fluid">
+            </div>
+            <div class="col-md-6 p-2">
+                <h5 class="mb-3">Permis verso : </h5>
+                <img src="/uploads/permis/{{ app.user.permisverso }}" alt="" class="img-fluid">
+            </div>
+        </div>
+    </div>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Stellantis - Inscription{% endblock %}
+
+{% block body %}
+    {% if notification %}
+        <div class="alert alert-danger text-center">{{ notification }}</div>
+        <hr>
+
+    {% endif %} 
+    <div class="form-client-custom p-5">
+        {{ form_start(form) }}
+        <h3 class="h3 mb-3 text-center font-weight-normal">Inscrivez-vous</h3>
+        <div class="row py-2">
+            <div class="col-6">
+                {{ form_row(form.prenom, {'label': 'Prénom'}) }}
+            </div>
+            <div class="col-6">
+                {{ form_row(form.nom, {'label': ''}) }}
+            </div>
+        </div>
+        <div class="row py-2">
+            <div class="col-12">
+                {{ form_row(form.email, {'label': ''}) }}
+            </div>
+        </div>
+        <div class="row py-2">
+            <div class="col-12">
+                {{ form_row(form.password, {'label': ''}) }}
+            </div>
+        </div>
+        <div class="text-center">
+            {{ form_rest(form) }}
+        </div>
+
+
+
+        </div>
+
+    </div>
+{% endblock %}

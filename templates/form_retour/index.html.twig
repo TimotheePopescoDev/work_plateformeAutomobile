@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Satisfaction - Stellantis{% endblock %}
+
+{% block body %}
+    <div class="form-client-custom p-5 ">
+        {{ form_start(formretour) }}
+
+        <h3 class="h3 mb-3  text-center font-weight-normal">Formulaire de satisfaction</h3>
+        <div class="row pt-5">
+            <div class="col-md-6 p-4">
+                {{ form_row(formretour.client, {'label': 'Vous êtes : '}) }}
+            </div>
+            <div class="col-md-6 p-4">
+                {{ form_row(formretour.voitures, {'label': 'Catégorie essayée :'}) }}
+            </div>
+        </div>
+        <div class="py-2">
+            {{ form_row(formretour.avis, {'label': 'Avis'}) }}
+        </div>
+        <div class="p-2 text-center">
+            {{ form_rest(formretour) }}
+        </div>
+
+    </div>
+{% endblock %}

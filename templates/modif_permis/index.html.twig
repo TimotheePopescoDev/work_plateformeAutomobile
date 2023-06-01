@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier mon permis - Stellantis{% endblock %}
+
+{% block body %}
+
+    <div class="form-client-custom p-5">
+        {{ form_start(formpermis) }}
+
+        <p>Votre permis de conduire (jpg, png, jpeg) :</p>
+        <div class="row pb-2">
+            <div class="col-6">
+                {{ form_row(formpermis.permisrecto,{'label': 'Recto '}) }}
+            </div>
+            <div class="col-6">
+                {{ form_row(formpermis.permisverso, {'label': 'Verso '}) }}
+            </div>
+        </div>
+        <div class="py-2">
+            <div class="text-center">
+                {{ form_rest(formpermis) }}
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

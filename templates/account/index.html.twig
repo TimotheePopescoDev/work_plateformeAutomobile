@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gestion des essais - Stellantis{% endblock %}
+
+{% block body %}
+    <Section class="w-100 d-flex">
+        <div class="div-cutom-menu-active text-center">
+            <h3>
+                <a href="{{ path('app_account') }}">Ajouter un essai</a>
+            </h3>
+        </div>
+        <div class="div-cutom-menu text-center">
+            <h3>
+                <a href="{{ path('app_essais') }}">Essais en cours</a>
+            </h3>
+        </div>
+    </Section>
+    <div class="form-client-custom p-5">
+        {{ form_start(formajout) }}
+
+        <h3 class="h3 pb-3 font-weight-normal text-center">Ajouter un essai</h3>
+        <h5>Clients : </h5>
+        <div class="py-2 row">
+            <div class=" col-md-6">
+                {{ form_row(formajout.conducteur, {'label': 'Conducteur : '}) }}
+            </div>
+            <div class="col-md-6">
+                {{ form_row(formajout.passager01, {'label': 'Passager01 : '}) }}
+            </div>
+        </div>
+        <h5>Essai : </h5>
+        <div class="py-2 row">
+
+            <div class="col-md-12">
+                {{ form_row(formajout.voiture, {'label': 'Voiture : '}) }}
+            </div>
+
+        </div>
+        <div class="py-2 row">
+            <div class="col-md-12">
+                {{ form_row(formajout.route, {'label': 'Parcour : '}) }}
+            </div>
+        </div>
+
+        <div class="py-2">
+            <div class="text-center">
+                {{ form_rest(formajout) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

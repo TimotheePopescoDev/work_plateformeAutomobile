@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Vos essais - Stellantis{% endblock %}
+
+{% block body %}
+    <div class="text-center py-2">
+        <h3 class="pt-2">Mes Essais</h3>
+    </div>
+    <div class="list-custom">
+        <div class="article-list row">
+            <div class="col-3 item-list"><p class="article-p">StartedAt</p></div>
+            <div class="col-6 item-list"><p class="article-p">Voiture</p></div>
+            <div class="col-3 item-list"><p class="article-p">Conducteur</p></div>
+        </div>
+        {% for essai in essais %}
+            {% if app.user == essai.conducteur or app.user == essai.passager01 %}
+            <div class="article-list row px-0">
+                <div class="col-3 item-list"><p class="article-p">{{ essai.startedAt|date('d/m/y H:i') }}</p></div>
+                <div class="col-6 item-list"><p class="article-p">{{ essai.voiture.marques }}  {{ essai.voiture.energies }} - {{ essai.voiture }} </p></div>
+                <div class="col-3 item-list"><p class="article-p">{{ essai.conducteur }}</p></div>
+            </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endblock %}

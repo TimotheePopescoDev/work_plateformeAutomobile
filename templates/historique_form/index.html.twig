@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des forms - Stellantis{% endblock %}
+
+{% block body %}
+    <Section class="w-100 d-flex">
+        <div class="div-cutom-menu text-center">
+            <h3>
+                <a href="{{ path('app_essais_complet') }}">Historique des essais</a>
+            </h3>
+        </div>
+        <div class="div-cutom-menu-active text-center">
+            <h3>
+                <a href="{{ path('app_historique_form') }}">Historique des forms</a>
+            </h3>
+        </div>
+    </Section>
+
+    <div class="list-custom">
+        <div class="article-list row">
+            <div class="col-6 item-list"><p class="article-p">Envoyé à</p></div>
+            <div class="col-6 item-list"><p class="article-p">Client</p></div>
+        </div>
+        {% for form in forms %}
+            <div class="article-list row px-0">
+                <div class="col-6 item-list"><p class="article-p">{{ form.sentAt|date('d/m/y H:i') }}</p></div>
+                <div class="col-6 item-list"><p class="article-p">{{ form.client }}</p></div>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

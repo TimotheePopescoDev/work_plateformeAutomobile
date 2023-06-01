@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des clients - Stellantis{% endblock %}
+
+{% block body %}
+    <Section class="w-100 d-flex">
+        <div class="div-cutom-menu-active text-center">
+            <h3>
+                <a href="{{ path('app_clients') }}">Liste des clients</a>
+            </h3>
+        </div>
+        <div class="div-cutom-menu text-center">
+            <h3>
+                <a href="{{ path('app_voitures') }}">Liste des voitures</a>
+            </h3>
+        </div>
+    </Section>
+
+    <div class="list-custom">
+        <div class="article-list row">
+            <div class="col-1 item-list"><p class="article-p"></p></div>
+            <div class="col-3 item-list"><p class="article-p">Client</p></div>
+            <div class="col-5 item-list"><p class="article-p">Choix</p></div>
+            <div class="col-3 item-list"><p class="article-p">Etat</p></div>
+        </div>
+        {% for client in clients %}
+            {% if client.roles == ["ROLE_USER"] %}
+            <div class="article-list row px-0">
+                {% if client.permisrecto and client.permisverso %}
+                    <div class="col-1 item-listgreen"></div>
+                {% else %}
+                    <div class="col-1 item-listred"></div>
+                {% endif %}
+                <div class="col-3 item-list"><p class="article-p">{{ client.id }} - {{ client.prenom }} {{ client.nom }} - {{ client.email }}</p></div>
+                {% if client.choix01 %}
+                    <div class="col-5 item-list"><p class="article-p">{{ client.choix01.modele }} {{ client.choix01.energies }}  - {{ client.choix02.modele }} {{ client.choix02.energies }}</p></div>
+                {% else %}
+                    <div class="col-5 item-list"><p class="article-p">Null</p></div>
+                {% endif %}
+                <div class="col-3 item-list pt-4 ">
+                    <a href="{{ path('app_state_client', {'id' : client.id}) }}" class="p-2 article-button">
+                        {% if client.etat == false %}
+                            Occupé
+                        {% else %}
+                            Dispo
+                        {% endif %}
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-repeat" viewBox="0 0 16 16">
+                            <path d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z"/>
+                            <path fill-rule="evenodd" d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+{% endblock %}

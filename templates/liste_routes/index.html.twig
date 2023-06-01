@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos parcours- Stellantis{% endblock %}
+
+{% block body %}
+    <div class="text-center p-4">
+        <h3>
+            Liste des Parcours (session Paris)
+        </h3>
+    </div>
+    <div class="m-0">
+        <h4 class="pl-5">Parcours disponible</h4>
+        <div class="row m-0">
+
+            <br>
+            {% for parcour in parcours %}
+                {% if parcour.dispo == true %}
+
+                    <div class="col-md-4 car">
+                        <div class="m-3 car-client-custom">
+                            <h5 class="text-center">{{ parcour.nom }}</h5>
+                            <p class="text-center car-client-category-custom">{{ parcour.description }}</p>
+                        </div>
+
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <br><br>
+        <h4 class="pl-5">Trouver des parcours dans une autre région</h4>
+        <div class="row m-0">
+
+            <br>
+            {% for parcour in parcours %}
+                {% if parcour.dispo == false %}
+
+                    <div class="col-md-4 car">
+                        <div class="m-3 car-client-custom">
+                            <h5 class="text-center">{{ parcour.nom }}</h5>
+                            <p class="text-center car-client-category-custom">{{ parcour.description }}</p>
+                        </div>
+
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+    </div>
+{% endblock %}

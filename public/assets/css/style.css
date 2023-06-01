@@ -1,0 +1,305 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.main-cutom select, .main-cutom select option{
+    word-wrap:break-word;
+    width: 90%;
+}
+body h1{
+    font-size: 32px;
+}
+.body-custom{
+    color: #243783;
+    padding-bottom: 0;
+    min-height: 80vh;
+}
+label.required:before {
+    content: " * ";
+    color: darkred;
+}
+body a {
+    color : #e0e0e0;
+    border: none;
+}
+body a:hover {
+    color : white;
+    text-decoration: underline;
+}
+nav{
+    background-color: #243783;
+    height: 10vh;
+}
+.nav-logo-left img{
+    height : 10vh;
+    width :auto;
+}
+.footer-custom{
+    background-color: #243783;
+    color : white;
+    display: block;
+    width: 100%;
+    padding: 4vh 5% 0 5%;
+    margin: 0;
+    height: 10vh;
+}
+main{
+    vertical-align: center;
+    min-height: 75vh;
+}
+button{
+    border: none;
+    margin-top: 2vh;
+    align-items: center;
+}
+.div-cutom-menu-active{
+    border: 2px solid #243783;
+    width: 100%;
+    background-color: #d0d0d0;
+    padding: 2vh 2%;
+}
+.div-cutom-menu-active a{
+    color: #243783;
+    text-decoration: underline;
+}
+.div-cutom-menu-active a:hover{
+    color: #243783;
+    cursor: auto;
+}
+.div-cutom-menu{
+    border: 2px solid #243783;
+    width: 100%;
+    padding: 2vh 2%;
+}
+.div-cutom-menu a{
+    color: #243783;
+}
+.div-cutom-menu a:hover{
+    color: #243783;
+}
+* body div select{
+    width: 100%;
+    padding: 0 1%;
+}
+
+.list-custom{
+    margin: 2vh 2% 0 2%;
+    height: 65vh;
+    width: 96%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scrollbar-color: rebeccapurple green;
+    scrollbar-width: thin;
+    border: 2px solid #243783;
+}
+.item-list{
+    border: 1px solid #243783;
+    text-align: center;
+}
+.item-list a {
+    color: #243783;
+    padding: 2vh 0;
+}
+.item-list a:hover {
+    color: #243783;
+}
+.article-img{
+    padding: 1vh 1%;
+    max-height: 10vh;
+    max-width: 100%;
+    text-align: center;
+}
+.article-img:hover{
+    max-width: 100%;
+    cursor: pointer;
+}
+.article-p{
+    max-width: 100%;
+    padding-top: 2vh;
+    word-wrap:break-word;
+    text-align: center;
+}
+
+.item-listgreen{
+    background-color: green;
+}
+.item-listred{
+    background-color: red;
+}
+
+.body-custom .main-cutom .form-client-custom{
+    display: block;
+    width: 100%;
+    padding: 5vh 10%;
+    align-self: center;
+}
+.body-custom .main-cutom .form-client-custom button{
+    border-radius : 20px;
+    padding: 2vh 4%;
+    align-items: center;
+    text-align: center;
+}
+.body-custom .main-cutom .form-client-custom input{
+    border-radius : 10px;
+}
+.article-button{
+    background-color: transparent;
+    max-width: 100%;
+    word-wrap:break-word;
+    cursor: pointer;
+    align-items: center;
+    text-align: center;
+}
+
+.erreur-custom img{
+    width: auto;
+    height: 40vh;
+
+}
+.media-space{
+    display: none;
+}
+.div-cutom-menub-active{
+    border: 1px solid #243783;
+    width: 100%;
+    background-color: #d0d0d0;
+    padding: 1vh 1%;
+}
+.div-cutom-menub-active a{
+    color: #243783;
+    text-decoration: underline;
+}
+.div-cutom-menub-active a:hover{
+    color: #243783;
+    cursor: auto;
+}
+.div-cutom-menub{
+    border: 2px solid #243783;
+    width: 100%;
+    padding: 2vh 2%;
+}
+.div-cutom-menub a{
+    color: #243783;
+}
+.div-cutom-menub a:hover{
+    color: #243783;
+}
+.car-client-custom{
+    border: 2px solid #243783;
+    padding: 2vh 4%;
+    text-align: center;
+    border-radius: 20px;
+    height: auto;
+}
+.car-client-custom a{
+    color: #243783;
+}
+.car-client-custom a:hover{
+    text-decoration: underline;
+    color: #243783;
+}
+.body-client-custom a{
+    color: #243783;
+}
+.body-client-custom a:hover{
+    color: #243783;
+    text-decoration: underline;
+}
+
+.car-client-custom img{
+    max-height: 30vh;
+
+}
+.car-client-category-custom{
+    font-size: 16px;
+}
+.custom-filter{
+    max-width: 75%;
+    padding:2vh 5%;
+    margin-right: auto;
+    margin-left: auto;
+
+}
+.custom-list-filtres{
+    display: block;
+}
+
+@media only screen and (max-width: 992px) {
+    .body-custom{
+        color: #243783;
+        padding-bottom: 0;
+        min-height: 72vh;
+    }
+    nav .navbar-button-burger{
+        color: white;
+        padding-bottom: 2vh;
+    }
+    .footer-custom{
+        min-height: 14vh;
+        align-items: center;
+
+    }
+    nav {
+        height: 14vh;
+    }
+    body {
+        font-size: 16px;
+    }
+    body  a {
+        font-size: 16px;
+    }
+    body  h1 {
+        font-size: 24px;
+    }
+    footer{
+        font-size: 18px;
+    }
+
+    header nav .custom-collapse{
+        padding-top: 2vh;
+        margin-top: 1vh;
+        background-color: #243783;
+        z-index: 20;
+    }
+    .main-cutom input{
+        font-size: 16px;
+        align-items: center;
+    }
+    .main-cutom select, .main-cutom select option{
+        word-wrap:break-word;
+        width: 90%;
+    }
+    .main-cutom form button{
+        padding: 1vh 2%;
+    }
+    .list-custom{
+        height: 60vh;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .media-space{
+        height: 1vh;
+        display: block;
+    }
+    .body-custom{
+        color: #243783;
+        padding-bottom: 0;
+        min-height: 72vh;
+    }
+    body {
+        font-size: 14px;
+    }
+    body  a {
+        font-size: 14px;
+    }
+    body  h1 {
+        font-size: 24px;
+    }
+     input{
+        font-size: 12px;
+        align-items: center;
+    }
+    footer{
+        font-size: 10px;
+    }
+}
