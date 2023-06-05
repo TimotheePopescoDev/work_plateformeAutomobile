@@ -4,10 +4,10 @@
 
 {% block body %}
     <div class="text-center p-4">
-        <h3>
+        <h3 class="">
             Liste des voitures
         </h3>
-    </div>
+    </div>{#
     <div class="m-0 custom-list-filtres">
         {{ form_start(form) }}
         <div class="custom-filter">
@@ -30,7 +30,7 @@
                     <div class="m-3 car-client-custom">
                         <a href="{{ path('app_car_shows', {'slug': car.slug}) }}">
                             <h5 class="text-center">{{ car.marques }}</h5>
-                            <p class="text-center">{{ car.modele }}</p>
+                            <p class="text-center">{{ car.modele }} <br> {{ car.energies }}</p>
                             <p class="text-right car-client-category-custom">{{ car.immatriculation }}</p>
                             <img src="/uploads/{{ car.illustration }}" class="img-fluid" alt="">
                         </a>
@@ -40,5 +40,9 @@
             {% endfor %}
         </div>
 
+    </div>#}
+    <div class="text-center p-5 mt-5">
+        <h5>Page actuellement en maintenance. Nous faisons de notre mieux pour terminer cette page au plus vite.</h5>
     </div>
+
 {% endblock %}

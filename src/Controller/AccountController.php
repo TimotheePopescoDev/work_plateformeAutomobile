@@ -40,11 +40,13 @@ class AccountController extends AbstractController
 
             $client = $ajout->getConducteur();
             $stateclient = $client->setEtat(false);
+            $stateclientavis = $client->setAvis(false);
 
             $passager01 = $ajout->getPassager01();
             if($passager01 != null)
             {
                 $statepassager01 = $passager01->setEtat(false);
+                $statepassager01avis = $passager01->setAvis(false);
             }
 
 
@@ -52,9 +54,11 @@ class AccountController extends AbstractController
             $em->persist($ajout);
             $em->persist($statecar);
             $em->persist($stateclient);
+            $em->persist($stateclientavis);
             if($passager01 != null)
             {
                 $em->persist($statepassager01);
+                $em->persist($statepassager01avis);
             }
 
             $em->flush();

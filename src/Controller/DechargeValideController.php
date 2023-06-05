@@ -6,13 +6,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class ChoixValideController extends AbstractController
+class DechargeValideController extends AbstractController
 {
-    #[Route('/compte/choix', name: 'app_choix_valide')]
+    #[Route('/account/decharge-valide', name: 'app_decharge_valide')]
     public function index(): Response
     {
-        return $this->render('modif_choix/choixvalid.html.twig', [
-            'controller_name' => 'ChoixValideController',
+        return $this->render('decharge/dechargevalide.html.twig', [
+            'controller_name' => 'DechargeValideController',
         ]);
     }
 }

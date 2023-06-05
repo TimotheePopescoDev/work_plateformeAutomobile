@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ma décharge - Stellantis{% endblock %}
+
+{% block body %}
+
+
+    {% if app.user.decharge %}
+        <div class="p-5">
+            <h3 class="text-center">Votre décharge</h3>
+            <div class="text-right p-2">
+                <a href="{{ path('app_decharge') }}" class="btn btn-primary btn-lg rounded-5" role="button">Remplacer ma décharge</a>
+            </div>
+            <div class="row">
+                <div class="col-md-12 p-2">
+                    <h5 class="mb-3 pt-5">Ma décharge : </h5>
+                    <div class="text-center py-5">
+                        <a href="/uploads/decharge/{{ app.user.decharge }}" class="btn btn-success btn-lg rounded-pill" role="button">Accéder à ma décharge</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+{% endblock %}

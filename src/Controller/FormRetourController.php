@@ -35,12 +35,22 @@ class FormRetourController extends AbstractController
             $retour = $formretour->getData();
             $retour->setSentAt($datef);
 
-            $client = $retour->getClient();
-            $stateclient = $client->setEtat(true);
+            if ($retour->getClient()){
+                $client = $retour->getClient();
+                if ($client->getId() == 11 ){
+                    $stateclient = $client->setAvis(false);
+                }else{
+                    $stateclient = $client->setAvis(true);
+                }
+
+            }
+
 
             $em = $this->doctrine->getManager();
             $em->persist($retour);
-            $em->persist($stateclient);
+            if ($retour->getClient()) {
+                $em->persist($stateclient);
+            }
             $em->flush();
 
             return $this->redirectToRoute('app_validation_retour');

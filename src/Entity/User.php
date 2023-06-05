@@ -60,6 +60,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\ManyToOne(inversedBy: 'users03')]
     private ?Car $choix03 = null;
 
+    #[ORM\Column]
+    private ?bool $avis = true;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $decharge = null;
+
     public function __construct()
     {
         $this->essais = new ArrayCollection();
@@ -290,6 +296,30 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setChoix03(?Car $choix03): self
     {
         $this->choix03 = $choix03;
+
+        return $this;
+    }
+
+    public function isAvis(): ?bool
+    {
+        return $this->avis;
+    }
+
+    public function setAvis(bool $avis): self
+    {
+        $this->avis = $avis;
+
+        return $this;
+    }
+
+    public function getDecharge(): ?string
+    {
+        return $this->decharge;
+    }
+
+    public function setDecharge(?string $decharge): self
+    {
+        $this->decharge = $decharge;
 
         return $this;
     }

@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Decharge - Stellantis{% endblock %}
+
+{% block body %}
+
+    <div class="form-client-custom p-5">
+        {{ form_start(formdecharge) }}
+
+        <h3 class="text-center pt-5">Votre décharge</h3>
+        <div class="text-right">
+            <a href="/uploads/decharge/decharge-exemple.pdf" class="btn btn-primary btn-lg rounded-pill" role="button">Télécharger la décharge à signer</a>
+        </div>
+        <div class="row py-4">
+            <div class="col-12">
+                {{ form_row(formdecharge.decharge,{'label': '(jpg, png, jpeg, pdf, x-pdf) :'}) }}
+            </div>
+        </div>
+        <div class="py-2">
+            <div class="text-center">
+                {{ form_rest(formdecharge) }}
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

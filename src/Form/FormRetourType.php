@@ -21,7 +21,7 @@ class FormRetourType extends AbstractType
                 'class' => User::class,
                 'query_builder' => function (EntityRepository $er) {
                     return $er->createQueryBuilder('u')
-                        ->where('u.etat = false')
+                        ->where('u.avis = false')
                         ->andwhere('u.roles IN (:role)')
                         ->setParameter('role', array('[]'))
                         ->orderBy('u.id', 'ASC');

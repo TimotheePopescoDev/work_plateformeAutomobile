@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\classe\ChangeState;
 use App\Entity\Car;
 use App\Entity\Essais;
+use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -49,16 +50,16 @@ class EssaisEnCoursController extends AbstractController
         $statecar = $car->IsEtat();
 
         // Si pas de besoin de formulaire satisfaction
-        /*$client = $repo->getClient();
-        $repoclient = $this->entityManager->getRepository(Clients::class)->findOneBy(['id' => $client]);
+        $client = $repo->getConducteur();
+        $repoclient = $this->entityManager->getRepository(User::class)->findOneBy(['id' => $client]);
         $stateclient = $repoclient->IsEtat();
 
         $passager01 = $repo->getPassager01();
         if ($passager01 != null)
         {
-            $repop01 = $this->entityManager->getRepository(Clients::class)->findOneBy(['id' => $passager01]);
+            $repop01 = $this->entityManager->getRepository(User::class)->findOneBy(['id' => $passager01]);
             $statep01 = $repop01->IsEtat();
-        }*/
+        }
 
         // end Si
 
@@ -71,11 +72,11 @@ class EssaisEnCoursController extends AbstractController
             $statecar = $car->setEtat(true);
 
             // Si pas de besoin de formulaire satisfaction
-            /*$stateclient = $repoclient->setEtat(true);
+            $stateclient = $repoclient->setEtat(true);
             if ($passager01 != null)
             {
                $statep01 = $repop01->setEtat(true);
-            }*/
+            }
             // end Si
         }
         $em = $this->doctrine->getManager();
@@ -84,11 +85,11 @@ class EssaisEnCoursController extends AbstractController
 
 
         // Si pas de besoin de formulaire satisfaction
-        /*$em->persist($stateclient);
+        $em->persist($stateclient);
         if ($passager01 != null)
         {
             $em->persist($statep01);
-        }*/
+        }
         // end Si
 
         $em->flush();

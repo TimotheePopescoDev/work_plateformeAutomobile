@@ -12,35 +12,36 @@
             <a href="{{ path('app_login') }}" class="btn btn-primary btn-md rounded-pill" role="button">Je me connecte</a>
         {% endif %}
         {% if app.user %}
-            <p class="px-5 py-2"><b>Bonjour {{ app.user.prenom }} {{ app.user.nom }}. </p>
+            <p class="px-5 py-2">Bonjour {{ app.user.prenom }} {{ app.user.nom }}. </p>
             
             {% if not is_granted('ROLE_ADMIN') %}
-            <p> </b><br> Vous pouvez ajouter votre permis et vos envies afin
+                <p><br> Vous pouvez ajouter votre permis et votre décharge afin
                 d'accélérer votre prise en charge durant l'évènement.</p>
-            {% if app.user.permisrecto and app.user.permisverso  %}
-                <a href="{{ path('app_permis_valide') }}" class="btn btn-primary btn-md rounded-5" role="button">Mon permis</a>
-            {% else %}
-                <a href="{{ path('app_modif_permis') }}" class="btn btn-primary btn-md rounded-5" role="button">J'ajoute mon permis</a>
+                {% if app.user.permisrecto and app.user.permisverso  %}
+                    <a href="{{ path('app_permis_valide') }}" class="btn btn-success btn-md rounded-5" role="button">Mon permis</a>
+                {% else %}
+                    <a href="{{ path('app_modif_permis') }}" class="btn btn-warning btn-md rounded-5" role="button">J'ajoute mon permis</a>
+                {% endif %}
+                {% if app.user.decharge  %}
+                    <a href="{{ path('app_decharge_valide') }}" class="btn btn-success btn-md rounded-5" role="button">Ma décharge</a>
+                {% else %}
+                    <a href="{{ path('app_decharge') }}" class="btn btn-warning btn-md rounded-5" role="button">Remplir la décharge</a>
+                {% endif %}
+
+                {#  {% if app.user.essais != null %}
+                    <a href="{{ path('app_mes_forms') }}" class="btn btn-primary btn-md rounded-pill" role="button">Mes essais</a>
+                {% endif %}
+                #}
             {% endif %}
-                <div class="media-space"></div>
-            {% if app.user.choix01 and app.user.choix02 and app.user.choix03  %}
-                <a href="{{ path('app_choix_valide') }}" class="btn btn-primary btn-md rounded-pill" role="button">Je consulte mes choix</a>
-            {% else %}
-                <a href="{{ path('app_modif_choix') }}" class="btn btn-primary btn-md rounded-5" role="button">J'ajoute des choix d'essais</a>
-                
-            {% endif %}
-            {% endif %}
+            {#
             <br><br>
             <p class="px-5">Vous pouvez également consulter la liste des voitures et des parcours disponible à l'essai.</p>
             <div class="media-space"></div>
             <a href="{{ path('app_liste_routes') }}" class="btn btn-primary btn-md rounded-5" role="button">Liste des parcours</a>
             <div class="media-space"></div>
             <a href="{{ path('app_car_client') }}" class="btn btn-primary btn-md rounded-pill" role="button">Liste des voitures</a>
-            {% if app.user.essais != null %}
-                <a href="{{ path('app_mes_forms') }}" class="btn btn-primary btn-md rounded-pill" role="button">Mes essais</a>
-            {% endif %}
-        {% endif %}
-        <br><br>
+            #}{% endif %}
+        {#<br><br>
         <p class="px-5">Vous pouvez également remplir le formulaire afin de nous aider.</p>
         {% if is_granted('ROLE_ADMIN') %}
             <a href="{{ path('app_register') }}" class="btn btn-primary btn-md rounded-5" role="button">Inscription</a>
@@ -48,6 +49,6 @@
         {% endif %}
         <a href="{{ path('app_form_retour') }}" class="btn btn-primary btn-md rounded-pill" role="button">Formulaire de satisfaction</a>
 
-    </div>
+    </div>#}
 
 {% endblock %}
